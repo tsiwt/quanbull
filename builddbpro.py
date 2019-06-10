@@ -11,7 +11,7 @@ import sys
 
 
 def getallstockcodes_pro(engine):
-    ts.set_token('6c6eb6d7fb037c74f999dc78a9bdcca6a961b52fcb06ced3c746ae1f')
+    ts.set_token('000000000000000000000000000000000000000000000000000000000000000000000000000000')
     pro = ts.pro_api()
     data = pro.query('stock_basic', exchange='', list_status='L',
                      fields='ts_code,symbol,name,area,industry,list_date')
@@ -59,10 +59,10 @@ def updateallstocks_bydataframe_fuquan(daynums, dbname):
                 start_date=startstr,
                 end_date=endstr)
 
-            # ´æÈëÊı¾İ¿â
+            # å­˜å…¥æ•°æ®åº“
             # df.to_sql('tick_data',engine)
 
-            # ×·¼ÓÊı¾İµ½ÏÖÓĞ±í
+            # è¿½åŠ æ•°æ®åˆ°ç°æœ‰è¡¨
             df.to_sql('daily_data', engine, if_exists='append')
             stocknum += 1
 
@@ -93,10 +93,10 @@ def updateallstocks_bydataframe(daynums, dbname):
             pro = ts.pro_api()
             df = pro.daily(ts_code=item, start_date=startstr, end_date=endstr)
 
-            # ´æÈëÊı¾İ¿â
+            # å­˜å…¥æ•°æ®åº“
             # df.to_sql('tick_data',engine)
 
-            # ×·¼ÓÊı¾İµ½ÏÖÓĞ±í
+            # è¿½åŠ æ•°æ®åˆ°ç°æœ‰è¡¨
             df.to_sql('daily_data', engine, if_exists='append')
             stocknum += 1
 
